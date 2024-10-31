@@ -198,7 +198,8 @@
 
    <main>
       <!-- Hero Section Start -->
-      <section class="hero-section" style="; position: relative; z-index: 1; padding: 60px 0;background-color: #f9f9f9;">
+      <section class="hero-section"
+         style="; position: relative; z-index: 1; padding: 60px 0;background-color: #f9f9f9;">
          <div class="container">
             <div class="row align-items-center">
                <!-- Hero Content -->
@@ -732,45 +733,44 @@
             </div>
             <div class="row align-items-center">
                <div class="col-xl-6 mb-30">
+
                   <div class="ca-contact-from w-bg ca-contact-from-3 aos-init aos-animate" data-aos="fade-right"
                      data-aos-duration="1200">
                      <div class="ca-contact-content-3">
                         <h4 class="ca-contact-title-2 theme-black-2 fnw-600">Send Us A Message</h4><br>
                      </div>
-                     <form action="#">
+                     <form action="https://formsubmit.co/wamm99@gmail.com" method="POST"
+                        onsubmit="alert('Message sent!')">
+                        <!-- Hidden fields for FormSubmit customization -->
+                        <input type="hidden" name="_next" value="https://yourdomain.co/thanks.html">
+                        <input type="hidden" name="_subject" value="New Message from Contact Form">
+
                         <div class="row">
                            <div class="col-md-6 mb-20">
-                              <input type="text" placeholder="First Name">
+                              <input type="text" name="first_name" placeholder="First Name" required>
                            </div>
                            <div class="col-md-6 mb-20">
-                              <input type="text" placeholder="Last Name">
+                              <input type="text" name="last_name" placeholder="Last Name" required>
                            </div>
                            <div class="col-md-6 mb-20">
-                              <input type="tel" placeholder="Phone Number">
+                              <input type="tel" name="phone_number" placeholder="Phone Number">
                            </div>
                            <div class="col-md-6 mb-20">
-                              <input type="email" placeholder="Email Address">
+                              <input type="email" name="email" placeholder="Email Address" required>
                            </div>
                            <div class="col-md-12 mb-20">
-                              <textarea name="message" id="message" placeholder="Message"></textarea>
+                              <textarea name="message" placeholder="Message" required></textarea>
                            </div>
                            <div class="submit-btn">
-                              <button class="ca-btn-primary-3 theme-bg-3 text-white br-50" type="button"
-                                 onclick="showPopup()">
-                                 Send Message<span><i class="fa-solid fa-angle-right"></i></span>
+                              <button type="submit" class="ca-btn-primary-3 theme-bg-3 text-white br-50">
+                                 Submit Message<span><i class="fa-solid fa-angle-right"></i></span>
                               </button>
                            </div>
-
-                           <script>
-                              function showPopup() {
-                                 alert("Message sent!");
-                                 // Prevent the form from submitting or scrolling up
-                                 // You can also add logic here to clear the form if needed
-                              }
-                           </script>
                         </div>
                      </form>
                   </div>
+
+
                </div>
                <div class="col-xl-6 mb-30">
                   <div class="ca-form-loca-3 ml-50 aos-init aos-animate" data-aos="fade-left" data-aos-duration="1400">
