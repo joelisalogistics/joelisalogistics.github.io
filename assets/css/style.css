@@ -6069,21 +6069,30 @@ button.ca-btn-primary.ca-btn-primary-2 span {
     background: #fff;
     padding: 16px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    margin-left: 20px;
-    margin-right: 20px;
-}
-.ca-team-iner-content {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     margin-top: -43px;
     position: relative;
     z-index: 1;
+    text-align: center;
+    border-radius: 7px;
 }
 .ca-team-iner-img img {
     border-radius: 7px;
     overflow: hidden;
     transition: .3s;
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+}
+
+/* Fix Mohammed's picture positioning */
+.ca-team-iner-img img[src*="mem.JPG"] {
+     object-position: 45% center;
 }
 .ca-team-iner-title a{
     font-weight: 600;
@@ -6150,8 +6159,90 @@ button.ca-btn-primary.ca-btn-primary-2 span {
     visibility: visible;
 }
 .ca-team-inner:hover .ca-team-iner-share a {
-    background: #0E47A1;
-    transition: .3s;
+     background: #0E47A1;
+     transition: .3s;
+ }
+
+/* Enhanced team layout for better balance with 5 members */
+.ca-teams-inner .row {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     gap: 15px;
+}
+
+/* All team members in equal width for 5-member layout */
+.ca-teams-inner .row .col-xl-4,
+.ca-teams-inner .row .col-xl-6,
+.ca-teams-inner .row .col-lg-6,
+.ca-teams-inner .row .col-md-6 {
+     flex: 1;
+     min-width: calc(20% - 15px);
+     max-width: calc(20% - 15px);
+}
+
+/* Ensure consistent spacing and height for team members */
+.ca-teams-inner .ca-team-inner {
+     height: 100%;
+     display: flex;
+     flex-direction: column;
+}
+
+.ca-teams-inner .ca-team-inner .ca-team-iner-img {
+    flex-grow: 1;
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+}
+
+.ca-teams-inner .ca-team-inner .ca-team-iner-img img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     min-height: 420px;
+}
+
+.ca-teams-inner .ca-team-inner .ca-iner-content-team {
+     flex-shrink: 0;
+}
+
+/* Responsive adjustments for better balance */
+@media (max-width: 1199px) and (min-width: 992px) {
+     .ca-teams-inner .row .col-lg-6,
+     .ca-teams-inner .row .col-xl-4 {
+          flex: 1;
+          min-width: calc(25% - 15px);
+          max-width: calc(25% - 15px);
+     }
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+     .ca-teams-inner .row .col-md-6,
+     .ca-teams-inner .row .col-xl-4,
+     .ca-teams-inner .row .col-lg-6 {
+          flex: 1;
+          min-width: calc(33.333% - 15px);
+          max-width: calc(33.333% - 15px);
+     }
+}
+
+@media (max-width: 767px) {
+     .ca-teams-inner .row {
+          flex-direction: column;
+          gap: 30px;
+     }
+
+     .ca-teams-inner .row .col-xl-4,
+     .ca-teams-inner .row .col-xl-6,
+     .ca-teams-inner .row .col-lg-6,
+     .ca-teams-inner .row .col-md-6 {
+          min-width: 100%;
+          max-width: 100%;
+     }
+
+     .ca-teams-inner .ca-team-inner .ca-team-iner-img img {
+          min-height: 300px;
+     }
 }
 
 
