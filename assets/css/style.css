@@ -6090,7 +6090,7 @@ button.ca-btn-primary.ca-btn-primary-2 span {
     object-fit: cover;
 }
 
-/* Fix Mohammed's picture positioning */
+/* Fix Mohamed Elhag's picture positioning */
 .ca-team-iner-img img[src*="mem.JPG"] {
      object-position: 45% center;
 }
