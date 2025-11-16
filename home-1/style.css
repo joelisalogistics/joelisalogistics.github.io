@@ -5365,7 +5365,7 @@ figure {
 }
 
 .our-storytitle {
-    width: 45%;
+    width: 100%;
 }
 
 .subtitle-home-2 {
@@ -5389,6 +5389,22 @@ figure {
     align-items: flex-start;
     width: 100%;
     display: flex;
+    margin-bottom: 40px;
+}
+
+.content-right .text-content-our-story {
+    width: 100%;
+}
+
+.content-right .text-content-our-story p {
+    margin-bottom: 24px;
+    font-size: 22px;
+    letter-spacing: -.44px;
+    line-height: 1.5em;
+}
+
+.content-right .text-content-our-story p:last-child {
+    margin-bottom: 0;
 }
 
 .number-big {
@@ -6504,10 +6520,16 @@ figure {
     flex-wrap: wrap;
     justify-content: space-between;
     box-shadow: 0 0 15px #94909033;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
 .person-item {
     background-color: #3552630d;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
 .leaderships-items-wrapper {
@@ -6515,7 +6537,7 @@ figure {
     grid-row-gap: 20px;
     flex-wrap: wrap;
     grid-template-rows: auto auto auto;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-auto-columns: 1fr;
     width: 100%;
     display: grid;
@@ -6531,7 +6553,6 @@ figure {
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
-    min-height: 138px;
     padding: 20px;
     display: flex;
 }
@@ -6539,7 +6560,23 @@ figure {
 .person-image {
     object-fit: cover;
     width: 100%;
-    min-height: 240px;
+    height: 400px;
+    display: block;
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+}
+
+.person-image-mohamed {
+    object-position: 40% center;
+}
+
+.person-image-wafaa {
+    object-position: 40% center;
+}
+
+.person-image-altahir {
+    object-position: 60% center;
 }
 
 .text-description {
@@ -11496,6 +11533,11 @@ figure {
         font-size: 20px;
     }
 
+    .content-right .text-content-our-story p {
+        font-size: 20px;
+        letter-spacing: -.4px;
+    }
+
     .text-content-our-story.tablet-no-space {
         margin-bottom: 0;
     }
@@ -11722,6 +11764,15 @@ figure {
         grid-column-gap: 24px;
         grid-row-gap: 24px;
         flex-flow: column wrap;
+        margin-bottom: 30px;
+    }
+
+    .content-right .text-content-our-story p {
+        margin-bottom: 20px;
+    }
+    
+    .content-right .text-content-our-story p:last-child {
+        margin-bottom: 0;
     }
 
     .number-big {
@@ -13133,6 +13184,10 @@ figure {
     }
 
     .text-content-our-story {
+        font-size: 18px;
+    }
+
+    .content-right .text-content-our-story p {
         font-size: 18px;
     }
 
