@@ -872,6 +872,7 @@
               <!-- Hidden fields for FormSubmit customization -->
               <input type="hidden" name="_next" value="https://joelisalogistics.ca/">
               <input type="hidden" name="_subject" value="New Message from Contact Form">
+              <input type="hidden" name="_captcha" value="false">
 
               <div class="top-block-form">
                 <input class="contacts-input-short w-input" maxlength="256" name="name" data-name="Name"
@@ -1004,36 +1005,41 @@
     });
 
     // Contact Form AJAX Submission
-    $('#email-form').on('submit', function (e) {
-      e.preventDefault();
-      var $form = $(this);
-      var $submitBtn = $form.find('input[type="submit"]');
-      var originalBtnValue = $submitBtn.val();
+    var Webflow = Webflow || [];
+    Webflow.push(function () {
+      $('#email-form').submit(function (e) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
 
-      $submitBtn.val('Sending...').prop('disabled', true);
+        var $form = $(this);
+        var $submitBtn = $form.find('input[type="submit"]');
+        var originalBtnValue = $submitBtn.val();
 
-      $.ajax({
-        url: $form.attr('action'),
-        method: 'POST',
-        data: $form.serialize(),
-        dataType: 'json',
-        success: function (response) {
-          alert('Thank you! Your message has been sent.');
-          $form[0].reset();
-        },
-        error: function (err) {
-          // FormSubmit.co returns a redirect or error if not activated
-          // We handle the success case even if it hits the error block due to CORS/Redirects
-          if (err.status === 0 || err.status === 200) {
+        $submitBtn.val('Sending...').prop('disabled', true);
+
+        $.ajax({
+          url: $form.attr('action'),
+          method: 'POST',
+          data: $form.serialize(),
+          dataType: 'json',
+          success: function (response) {
             alert('Thank you! Your message has been sent.');
             $form[0].reset();
-          } else {
-            alert('Oops! Something went wrong. Please try again or email us directly.');
+          },
+          error: function (err) {
+            // FormSubmit.co returns a 200/302 even on success sometimes which jQuery treats as error if dataType is json
+            if (err.status === 200 || err.status === 0) {
+              alert('Thank you! Your message has been sent.');
+              $form[0].reset();
+            } else {
+              alert('Oops! Something went wrong. Please try again or email us directly.');
+            }
+          },
+          complete: function () {
+            $submitBtn.val(originalBtnValue).prop('disabled', false);
           }
-        },
-        complete: function () {
-          $submitBtn.val(originalBtnValue).prop('disabled', false);
-        }
+        });
+        return false;
       });
     });
   });
